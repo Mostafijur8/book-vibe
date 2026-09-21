@@ -1,0 +1,148 @@
+{
+  "books": [
+    {
+      "bookId": 1,
+      "bookName": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "image": "https://i.ibb.co.com/khHN7Pk/9780143454212.jpg",
+      "review": "'The Great Gatsby' by F. Scott Fitzgerald is a timeless masterpiece that delves into the decadence and disillusionment of the Jazz Age. Set in the Roaring Twenties, the novel unveils the enigmatic Jay Gatsby's extravagant parties, masking a pursuit of lost love. Narrated by Nick Carraway, the story explores themes of wealth, love, and the American Dream, drawing readers into a vivid portrayal of the glittering yet elusive world of the East and West Egg. Fitzgerald's prose is both poetic and haunting, weaving a compelling narrative that transcends its era. A poignant exploration of societal excess and the human condition, 'The Great Gatsby' remains a literary gem that resonates across generations.",
+      "totalPages": 192,
+      "rating": 4.5,
+      "category": "Classic",
+      "tags": [
+        "Fiction",
+        "Romance"
+      ],
+      "publisher": "Scribner",
+      "yearOfPublishing": 1925
+    },
+    {
+      "bookId": 2,
+      "bookName": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://i.ibb.co.com/0cv102J/To-Kill-a-Mockingbird.webp",
+      "review": "'To Kill a Mockingbird' by Harper Lee is a powerful and enduring novel that explores themes of racial injustice, morality, compassion, and childhood innocence. Set in the American South, the story follows Scout Finch as she learns about justice and prejudice through her father Atticus Finch.",
+      "totalPages": 281,
+      "rating": 4.8,
+      "category": "Fiction",
+      "tags": [
+        "Drama",
+        "Social Justice"
+      ],
+      "publisher": "J.B. Lippincott & Co.",
+      "yearOfPublishing": 1960
+    },
+    {
+      "bookId": 3,
+      "bookName": "1984",
+      "author": "George Orwell",
+      "image": "https://i.ibb.co.com/MprDyVt/51-BIA4rrae-L-AC-UF1000-1000-QL80.jpg",
+      "review": "1984 by George Orwell is a dystopian novel that explores totalitarianism, surveillance, propaganda, and the manipulation of truth. The story follows Winston Smith, a man living under the control of the Party in a society where individual freedom and independent thought are heavily restricted.",
+      "totalPages": 328,
+      "rating": 4.6,
+      "category": "Fiction",
+      "tags": [
+        "Dystopian",
+        "Political"
+      ],
+      "publisher": "Secker & Warburg",
+      "yearOfPublishing": 1949
+    },
+    {
+      "bookId": 4,
+      "bookName": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "image": "https://i.ibb.co.com/tYSWRfG/catcherrye-edited-1-800x.png",
+      "review": "The Catcher in the Rye by J.D. Salinger follows Holden Caulfield, a teenager struggling with alienation, identity, and the transition from childhood to adulthood. Through Holden's unique voice and perspective, the novel explores themes of innocence, loneliness, authenticity, and the complexities of growing up.",
+      "totalPages": 224,
+      "rating": 4.3,
+      "category": "Fiction",
+      "tags": [
+        "Young Adult",
+        "Identity"
+      ],
+      "publisher": "Little, Brown and Company",
+      "yearOfPublishing": 1951
+    },
+    {
+      "bookId": 5,
+      "bookName": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "image": "https://i.ibb.co.com/YdQDMpn/81me-ud-V63-L-AC-UF1000-1000-QL80.jpg",
+      "review": "Pride and Prejudice by Jane Austen is a beloved classic that explores love, marriage, social class, and personal growth. The story centers on Elizabeth Bennet and Fitzwilliam Darcy as they overcome misunderstandings and social expectations.",
+      "totalPages": 279,
+      "rating": 4.7,
+      "category": "Classic",
+      "tags": [
+        "Romance",
+        "Satire"
+      ],
+      "publisher": "T. Egerton, Whitehall",
+      "yearOfPublishing": 1813
+    },
+    {
+      "bookId": 6,
+      "bookName": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "image": "https://i.ibb.co.com/xS8YvxL/81m-CE-uclx-L-UF1000-1000-QL80.jpg",
+      "review": "The Hobbit by J.R.R. Tolkien is an adventurous fantasy novel that follows Bilbo Baggins as he leaves his comfortable home and joins a dangerous quest with a group of dwarves. Along the journey, Bilbo encounters trolls, elves, giant spiders, and a mysterious creature named Gollum.",
+      "totalPages": 310,
+      "rating": 4.9,
+      "category": "Fantasy",
+      "tags": [
+        "Adventure",
+        "Epic"
+      ],
+      "publisher": "Allen & Unwin",
+      "yearOfPublishing": 1937
+    },
+    {
+      "bookId": 7,
+      "bookName": "Harry Potter and the Sorcerer's Stone",
+      "author": "J.K. Rowling",
+      "image": "https://i.ibb.co.com/989qMRW/42844155.jpg",
+      "review": "Harry Potter and the Sorcerer's Stone by J.K. Rowling introduces readers to Harry Potter, a young boy who discovers that he is a wizard and begins his education at Hogwarts School of Witchcraft and Wizardry. Alongside his friends Ron and Hermione, Harry discovers friendship, magic, mystery, and the challenges of facing evil.",
+      "totalPages": 309,
+      "rating": 4.8,
+      "category": "Fantasy",
+      "tags": [
+        "Magic",
+        "Young Adult"
+      ],
+      "publisher": "Bloomsbury",
+      "yearOfPublishing": 1997
+    },
+    {
+      "bookId": 8,
+      "bookName": "The Alchemist",
+      "author": "Paulo Coelho",
+      "image": "https://i.ibb.co.com/zS9jsdK/18144590.jpg",
+      "review": "The Alchemist by Paulo Coelho is an inspirational novel about following dreams, discovering one's purpose, and listening to the heart. The story follows Santiago, a young shepherd who travels in search of a treasure and discovers valuable lessons about life, courage, love, and personal destiny along the way.",
+      "totalPages": 177,
+      "rating": 4.6,
+      "category": "Fiction",
+      "tags": [
+        "Philosophical",
+        "Adventure"
+      ],
+      "publisher": "HarperCollins",
+      "yearOfPublishing": 1988
+    },
+    {
+      "bookId": 9,
+      "bookName": "The Girl on the Train",
+      "author": "Paula Hawkins",
+      "image": "https://i.ibb.co.com/P6hfCmJ/Whats-App-Image-2024-05-22-at-11-21-25-2e21ae46.jpg",
+      "review": "The Girl on the Train by Paula Hawkins is a psychological thriller centered on Rachel, a woman who observes a seemingly perfect couple during her daily train journey. When the woman suddenly disappears, Rachel becomes involved in the mystery. The novel explores memory, relationships, deception, and the unreliable nature of perception.",
+      "totalPages": 316,
+      "rating": 4.2,
+      "category": "Mystery",
+      "tags": [
+        "Suspense",
+        "Psychological"
+      ],
+      "publisher": "Riverhead Books",
+      "yearOfPublishing": 2015
+    }
+  ]
+}
