@@ -9,22 +9,32 @@ interface BookDetailsPageProps {
 }
 
 const getBook = async (id: string): Promise<IBook> => {
-  const res = await fetch("http://localhost:3000/booksData.json");
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch books data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch books data");
+    }
+
+    const books: IBook[] = await res.json();
+
+    const book = books.find((book) => book.bookId === Number(id));
+
+    if (!book) {
+      throw new Error("Book not found");
+    }
+
+    return book;
+  } catch (error) {
+    console.error("getBook error:", error);
+    throw error;
   }
-
-  const books: IBook[] = await res.json();
-
-  const book = books.find((book) => book.bookId === Number(id));
-
-  if (!book) {
-    throw new Error("Book not found");
-  }
-
-  return book;
 };
+
+
+
 
 const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
   const { id } = await params;

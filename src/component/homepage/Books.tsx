@@ -1,16 +1,30 @@
 import { IBook } from "../../../public/type/bookType";
 import BookCard from "../shared/BookCard";
 
-const getBook = async (): Promise<IBook[]> => {
-  const res = await fetch("http://localhost:3000/booksData.json");
+const getBook = async (id: string): Promise<IBook> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`,
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch books data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch books data");
+    }
+
+    const books: IBook[] = await res.json();
+
+    const book = books.find((book) => book.bookId === Number(id));
+
+    if (!book) {
+      throw new Error("Book not found");
+    }
+
+    return book;
+  } catch (error) {
+    console.error("getBook error:", error);
+    throw error;
   }
-
-  return res.json();
 };
-
 
 const Books = async () => {
   const getData = await getBook();
