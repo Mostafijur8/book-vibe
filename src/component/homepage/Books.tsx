@@ -2,7 +2,7 @@ import { IBook } from "../../../public/type/bookType";
 import BookCard from "../shared/BookCard";
 
 const getBook = async (): Promise<IBook[]> => {
-  const res = await fetch("http://localhost:3001/books");
+  const res = await fetch("http://localhost:3000/booksData.json");
 
   if (!res.ok) {
     throw new Error("Failed to fetch books data");
@@ -10,6 +10,7 @@ const getBook = async (): Promise<IBook[]> => {
 
   return res.json();
 };
+
 
 const Books = async () => {
   const getData = await getBook();

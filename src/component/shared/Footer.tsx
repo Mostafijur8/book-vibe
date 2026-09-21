@@ -1,5 +1,11 @@
+
 import Link from "next/link";
-import { FaFacebookF, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaGithub,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -23,34 +29,46 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="mt-5 flex gap-2">
+              {/* Facebook */}
               <a
-                href="#"
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-blue-200 text-[#1877F2] transition-all duration-300 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white"
               >
                 <FaFacebookF size={14} />
               </a>
 
+              {/* GitHub */}
               <a
-                href="#"
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-[#181717] transition-all duration-300 hover:border-[#181717] hover:bg-[#181717] hover:text-white"
               >
                 <FaGithub size={14} />
               </a>
 
+              {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-pink-200 text-[#E4405F] transition-all duration-300 hover:border-[#E4405F] hover:bg-[#E4405F] hover:text-white"
               >
                 <FaInstagram size={14} />
               </a>
 
+              {/* Twitter / X */}
               <a
-                href="#"
+                href="https://x.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Twitter"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-200 text-[#1DA1F2] transition-all duration-300 hover:border-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white"
               >
                 <FaTwitter size={14} />
               </a>
@@ -183,3 +201,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

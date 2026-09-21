@@ -2,7 +2,7 @@ import BookCard from "@/component/shared/BookCard";
 import { IBook } from "../../../public/type/bookType";
 
 const getBook = async (): Promise<IBook[]> => {
-  const res = await fetch("http://localhost:3001/books");
+  const res = await fetch("http://localhost:3000/booksData.json");
 
   if (!res.ok) {
     throw new Error("Failed to fetch books data");

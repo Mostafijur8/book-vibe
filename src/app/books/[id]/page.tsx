@@ -9,9 +9,7 @@ interface BookDetailsPageProps {
 }
 
 const getBook = async (id: string): Promise<IBook> => {
-  const res = await fetch(`http://localhost:3001/books?bookId=${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch("http://localhost:3000/booksData.json");
 
   if (!res.ok) {
     throw new Error("Failed to fetch books data");
@@ -19,11 +17,13 @@ const getBook = async (id: string): Promise<IBook> => {
 
   const books: IBook[] = await res.json();
 
-  if (books.length === 0) {
+  const book = books.find((book) => book.bookId === Number(id));
+
+  if (!book) {
     throw new Error("Book not found");
   }
 
-  return books[0];
+  return book;
 };
 
 const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
@@ -59,7 +59,9 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
             {/* Author */}
             <p className="mt-3 text-lg text-gray-500">
               by{" "}
-              <span className="font-semibold text-gray-800">{book.author}</span>
+              <span className="font-semibold text-gray-800">
+                {book.author}
+              </span>
             </p>
 
             {/* Rating */}
@@ -74,7 +76,9 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
               <span className="text-gray-400">|</span>
 
-              <span className="text-gray-500">{book.totalPages} Pages</span>
+              <span className="text-gray-500">
+                {book.totalPages} Pages
+              </span>
             </div>
 
             <div className="my-6 border-t border-gray-200" />
@@ -112,10 +116,12 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
             {/* Tags */}
             <div className="mt-6">
-              <p className="mb-3 text-sm font-semibold text-gray-500">Tags</p>
+              <p className="mb-3 text-sm font-semibold text-gray-500">
+                Tags
+              </p>
 
               <div className="flex flex-wrap gap-2">
-                {book.tags.map((tag) => (
+                {(book.tags ?? []).map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full bg-green-50 px-4 py-1.5 text-sm font-medium text-green-700"
@@ -128,7 +134,9 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
             {/* Review */}
             <div className="mt-7">
-              <h2 className="text-xl font-bold text-gray-900">Book Review</h2>
+              <h2 className="text-xl font-bold text-gray-900">
+                Book Review
+              </h2>
 
               <p className="mt-3 text-sm leading-7 text-gray-600">
                 {book.review}
