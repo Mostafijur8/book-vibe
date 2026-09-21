@@ -1,6 +1,6 @@
 import ReadButton from "@/component/bookDetails/ReadButton";
-import { IBook } from "../../../../public/type/bookType";
 import WishListButton from "@/component/bookDetails/WishListButton";
+import { IBook } from "../../../../public/type/bookType";
 
 interface BookDetailsPageProps {
   params: Promise<{
@@ -8,42 +8,34 @@ interface BookDetailsPageProps {
   }>;
 }
 
-const getBooks = async (): Promise<IBook[]> => {
-  const res = await fetch("http://localhost:3000/booksData.json");
+const getBook = async (id: string): Promise<IBook> => {
+  const res = await fetch(`http://localhost:3001/books?bookId=${id}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch books data");
   }
 
-  return res.json();
+  const books: IBook[] = await res.json();
+
+  if (books.length === 0) {
+    throw new Error("Book not found");
+  }
+
+  return books[0];
 };
 
 const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
   const { id } = await params;
 
-  const books = await getBooks();
-
-  const book = books.find((book) => book.bookId === Number(id));
-
-  // Book not found
-  if (!book) {
-    return (
-      <div className="flex min-h-[500px] items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-red-500">Book Not Found</h1>
-
-          <p className="mt-2 text-gray-500">No book found with ID: {id}</p>
-        </div>
-      </div>
-    );
-  }
+  const book = await getBook(id);
 
   return (
     <main className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
-      {/* Main Card */}
       <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* ================= Image ================= */}
+          {/* Image */}
           <div className="flex min-h-[500px] items-center justify-center bg-gray-100 p-6 sm:p-8 lg:p-10">
             <img
               src={book.image}
@@ -52,7 +44,7 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
             />
           </div>
 
-          {/* ================= Details ================= */}
+          {/* Details */}
           <div className="p-6 sm:p-8 lg:p-10">
             {/* Category */}
             <span className="inline-block rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold text-green-700">
@@ -85,14 +77,12 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
               <span className="text-gray-500">{book.totalPages} Pages</span>
             </div>
 
-            {/* Divider */}
             <div className="my-6 border-t border-gray-200" />
 
             {/* Book Information */}
-            <div className="grid grid-cols-2 gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-5">
               <div>
                 <p className="text-sm text-gray-400">Publisher</p>
-
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.publisher}
                 </p>
@@ -100,7 +90,6 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
               <div>
                 <p className="text-sm text-gray-400">Published</p>
-
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.yearOfPublishing}
                 </p>
@@ -108,7 +97,6 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
               <div>
                 <p className="text-sm text-gray-400">Category</p>
-
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.category}
                 </p>
@@ -116,7 +104,6 @@ const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
 
               <div>
                 <p className="text-sm text-gray-400">Total Pages</p>
-
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.totalPages}
                 </p>
