@@ -1,4 +1,3 @@
-
 import ReadButton from "@/component/bookDetails/ReadButton";
 import WishListButton from "@/component/bookDetails/WishListButton";
 import { IBook } from "../../../../public/type/bookType";
@@ -28,26 +27,20 @@ const getBooks = async (): Promise<IBook[]> => {
   }
 };
 
-const BookDetailsPage = async ({
-  params,
-}: BookDetailsPageProps) => {
+const BookDetailsPage = async ({ params }: BookDetailsPageProps) => {
   const { id } = await params;
 
   // Get all books
   const books = await getBooks();
 
   // Find the book according to URL id
-  const book = books.find(
-    (book) => book.bookId === Number(id)
-  );
+  const book = books.find((book) => book.bookId === Number(id));
 
   // If book does not exist
   if (!book) {
     return (
       <main className="container mx-auto px-4 py-10">
-        <h1 className="text-2xl font-bold text-red-500">
-          Book not found
-        </h1>
+        <h1 className="text-2xl font-bold text-red-500">Book not found</h1>
       </main>
     );
   }
@@ -56,7 +49,6 @@ const BookDetailsPage = async ({
     <main className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
       <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-
           {/* Image */}
           <div className="flex min-h-[500px] items-center justify-center bg-gray-100 p-6 sm:p-8 lg:p-10">
             <img
@@ -68,7 +60,6 @@ const BookDetailsPage = async ({
 
           {/* Details */}
           <div className="p-6 sm:p-8 lg:p-10">
-
             {/* Category */}
             <span className="inline-block rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold text-green-700">
               {book.category}
@@ -82,17 +73,13 @@ const BookDetailsPage = async ({
             {/* Author */}
             <p className="mt-3 text-lg text-gray-500">
               by{" "}
-              <span className="font-semibold text-gray-800">
-                {book.author}
-              </span>
+              <span className="font-semibold text-gray-800">{book.author}</span>
             </p>
 
             {/* Rating */}
             <div className="mt-5 flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-2xl text-yellow-500">
-                  ★
-                </span>
+                <span className="text-2xl text-yellow-500">★</span>
 
                 <span className="text-xl font-bold text-gray-800">
                   {book.rating}
@@ -101,20 +88,15 @@ const BookDetailsPage = async ({
 
               <span className="text-gray-400">|</span>
 
-              <span className="text-gray-500">
-                {book.totalPages} Pages
-              </span>
+              <span className="text-gray-500">{book.totalPages} Pages</span>
             </div>
 
             <div className="my-6 border-t border-gray-200" />
 
             {/* Book Information */}
             <div className="grid grid-cols-2 gap-5">
-
               <div>
-                <p className="text-sm text-gray-400">
-                  Publisher
-                </p>
+                <p className="text-sm text-gray-400">Publisher</p>
 
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.publisher}
@@ -122,9 +104,7 @@ const BookDetailsPage = async ({
               </div>
 
               <div>
-                <p className="text-sm text-gray-400">
-                  Published
-                </p>
+                <p className="text-sm text-gray-400">Published</p>
 
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.yearOfPublishing}
@@ -132,9 +112,7 @@ const BookDetailsPage = async ({
               </div>
 
               <div>
-                <p className="text-sm text-gray-400">
-                  Category
-                </p>
+                <p className="text-sm text-gray-400">Category</p>
 
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.category}
@@ -142,22 +120,17 @@ const BookDetailsPage = async ({
               </div>
 
               <div>
-                <p className="text-sm text-gray-400">
-                  Total Pages
-                </p>
+                <p className="text-sm text-gray-400">Total Pages</p>
 
                 <p className="mt-1 font-semibold text-gray-800">
                   {book.totalPages}
                 </p>
               </div>
-
             </div>
 
             {/* Tags */}
             <div className="mt-6">
-              <p className="mb-3 text-sm font-semibold text-gray-500">
-                Tags
-              </p>
+              <p className="mb-3 text-sm font-semibold text-gray-500">Tags</p>
 
               <div className="flex flex-wrap gap-2">
                 {(book.tags ?? []).map((tag) => (
@@ -173,9 +146,8 @@ const BookDetailsPage = async ({
 
             {/* Review */}
             <div className="mt-7">
-              <h2 className="text-xl font-bold text-gray-900">
-                Book Review
-              </h2>
+              <h2 className="text-xl font-bold text-gray-900">Book Review</h2>
+
 
               <p className="mt-3 text-sm leading-7 text-gray-600">
                 {book.review}
@@ -187,13 +159,10 @@ const BookDetailsPage = async ({
               <ReadButton book={book} />
               <WishListButton book={book} />
             </div>
-
           </div>
         </div>
       </div>
     </main>
   );
 };
-
 export default BookDetailsPage;
-
