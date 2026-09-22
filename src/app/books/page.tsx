@@ -7,16 +7,12 @@ const getBooks = async (): Promise<IBook[]> => {
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`,
     );
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch books data");
-    }
-
     const books: IBook[] = await res.json();
 
     return books;
   } catch (error) {
     console.error("getBooks error:", error);
-    throw error;
+    return [];
   }
 };
 
